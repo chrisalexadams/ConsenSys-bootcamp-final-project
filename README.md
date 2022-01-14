@@ -4,7 +4,7 @@
 
 Smart Contract Wallet is a wallet as a deployed smart contract that can hold Ethereum and any ERC20 token. It can also send and receive Ethereum and ERC20 tokens.
 
-## Directory Structure :scroll
+## Directory Structure :scroll:
 
 - `contracts`: Smart contracts source code
 - `public` : Create React App public folder
@@ -13,7 +13,7 @@ Smart Contract Wallet is a wallet as a deployed smart contract that can hold Eth
 - `scripts` : Scripts for deployment
 - `test` : Unit testing
 
-## Installing :wrench
+## Installing :wrench:
 
 - Clone the repository:
 
