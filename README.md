@@ -1,6 +1,6 @@
 ![alt text](src/images/SCW.png)
 
-## Project Description
+# Project Description
 
 Smart Contract Wallet is a wallet as a deployed smart contract that can hold Ethereum and any ERC20 token. It can also send and receive Ethereum and ERC20 tokens.
 
