@@ -1,70 +1,119 @@
-# Getting Started with Create React App
+![alt text](src/images/SCW.png)
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Project Description
 
-## Available Scripts
+Smart Contract Wallet is a wallet as a deployed smart contract that can hold Ethereum and any ERC20 token. It can also send and receive Ethereum and ERC20 tokens.
 
-In the project directory, you can run:
+## Directory Structure :scroll
 
-### `yarn start`
+- `contracts`: Smart contracts source code
+- `public` : Create React App public folder
+- `src`: The frontend source code
+  - `src/web3` : Custom Web3Modal login logic
+- `scripts` : Scripts for deployment
+- `test` : Unit testing
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Installing :wrench
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+- Clone the repository:
 
-### `yarn test`
+```sh
+git clone https://github.com/chrisalexadams/blockchain-developer-bootcamp-final-project
+cd blockchain-developer-bootcamp-final-project
+```
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- make a copy of `.env.example` and rename it to `.env`
+- fill in your credentials in `.env`
 
-### `yarn build`
+- ```sh
+  npm install
+  ```
+  
+- ```sh
+  npx hardhat compile
+  ```
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Local Deployment and Testing
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### 1. In a terminal, type
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+ ```sh
+  npx hardhat node
+  ```
 
-### `yarn eject`
+- You should see the following output:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```sh
+Started HTTP and WebSocket JSON-RPC server at http://127.0.0.1:8545/
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Accounts
+========
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+WARNING: These accounts, and their private keys, are publicly known.
+Any funds sent to them on Mainnet or any other live network WILL BE LOST.
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+- Then a list of 20 accounts will be displayed with 10000 ETH each.
 
-## Learn More
+### 2. Open another terminal and type
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+```sh
+npx hardhat run scripts/deploy.js --network localhost
+```
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- You should see the following output:
 
-### Code Splitting
+```sh
+Deploying contracts with the account: 0x...
+Account balance: 10000000000000000000000
+Wallet address: 0x...
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### 3. Open another terminal and type
 
-### Analyzing the Bundle Size
+```sh
+npx hardhat test
+```
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+---
 
-### Making a Progressive Web App
+## Deployment to Testnet
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+In order to use the contract as your wallet, you (as the owner) need to deploy it to the testnet.  
 
-### Advanced Configuration
+- To deploy to your choice of Testnet Network, you can use the following command:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+  ```sh
+  npx hardhat run scripts/deploy.js --network <testnet of choice>
+  ```
 
-### Deployment
+- To verify the source code, run this in the terminal:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+  ```sh
+  npx hardhat verify --network <testnet of choice> DEPLOYED_CONTRACT_ADDRESS
+  ```
 
-### `yarn build` fails to minify
+The contract is deployed by me (the owner) on the [Rinkeby Testnet](https://rinkeby.etherscan.io/address/0x629977b1862125c779b149de907a0198793f9780#code) with the contract source code verified engaging in all functions:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+- `receiveERC20`
+- `sendERC20`
+- `sendEther`
+- `receive()`
+
+---
+
+## Tools
+
+- [Metamask Wallet](https://metamask.io/)
+- [Hardhat](https://hardhat.org/) - Development framework and local blockchain
+- [React](https://reactjs.org/) - Frontend framework
+- [Solidity](https://docs.soliditylang.org/en/v0.8.11/) - Ethereum smart contract language
+ development
+- [Ethers](https://web3js.readthedocs.io/en/v1.3.0/) - Library to interact with Ethereum nodes
+- [JavaScript](https://www.javascript.com/) - Front end and unit testing
+- [Infura](https://infura.io/) - Connection to Ethereum
+- [Open Zeppelin](https://openzeppelin.com/) - Smart contract libraries and interfaces
+
+---
+
+### ENS Address [chrisa.eth](https://app.ens.domains/name/chrisa.eth/details)
