@@ -6,10 +6,6 @@ import Cards from "./Cards/Cards";
 
 //const { ethers } = require("ethers");
 
-
-
-   // function below was original code, const I got from rodrigo, still works 
-  // function App() {
   // const App = () => {
     function App() {
     const { account, connectWeb3, logout } = useContext(Web3Context);
