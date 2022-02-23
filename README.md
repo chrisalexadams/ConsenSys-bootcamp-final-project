@@ -1,37 +1,45 @@
-![alt text](src/images/SCW.png)
-
 # Project Description
 
+![alt text](src/images/SCW.png)
+
 Smart Contract Wallet is a wallet as a deployed smart contract that can hold Ethereum and any ERC20 token. It can also send and receive Ethereum and ERC20 tokens.
+
+[![Build Status](https://github.com/zumzoom/solidity-template/workflows/CI/badge.svg)](https://github.com/chrisalexadams/blockchain-developer-bootcamp-final-project/actions)
+[![Coverage Status](https://coveralls.io/repos/github/ZumZoom/solidity-template/badge.svg?branch=master)](https://github.com/chrisalexadams/blockchain-developer-bootcamp-final-project?branch=master)
 
 ## Directory Structure :scroll:
 
 - `contracts`: Smart contracts source code
 - `public` : Create React App public folder
 - `src`: The frontend source code
-  - `src/web3` : Custom Web3Modal login logic
+  - `src/web3` : Custom web3modal login logic
 - `scripts` : Scripts for deployment
 - `test` : Unit testing
 
 ## Installing :wrench:
 
-- Clone the repository:
+### 1. Clone the repository and open in your editor
 
 ```sh
 git clone https://github.com/chrisalexadams/blockchain-developer-bootcamp-final-project
 cd blockchain-developer-bootcamp-final-project
+code .
 ```
+
+### 2. Follow these steps to install and compile
 
 - make a copy of `.env.example` and rename it to `.env`
 - fill in your credentials in `.env`
 
 - ```sh
-  npm install
+  npm i
   ```
   
 - ```sh
   npx hardhat compile
   ```
+
+---
 
 ## Local Deployment and Testing
 
@@ -61,6 +69,7 @@ Any funds sent to them on Mainnet or any other live network WILL BE LOST.
 npx hardhat run scripts/deploy.js --network localhost
 ```
 
+- localhost is defined as port **8545** in `hardhat.config.js`
 - You should see the following output:
 
 ```sh
@@ -72,7 +81,7 @@ Wallet address: 0x...
 ### 3. Open another terminal and type
 
 ```sh
-npx hardhat test
+npx hardhat test --logs
 ```
 
 ---
@@ -101,6 +110,12 @@ The contract is deployed by me (the owner) on the [Rinkeby Testnet](https://rink
 - `receive()`
 
 ---
+
+## Start the Frontend
+
+### In a terminal, type
+
+`npm start`
 
 ## Tools
 
